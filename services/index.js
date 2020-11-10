@@ -21,10 +21,10 @@ async function loginLetterboxd(page) {
 
 }
 
-async function findFilm(page) {
+async function findFilm(page, film) {
     await page.waitForSelector('.js-nav-search-toggle');
 
-    const film = readlineSync.question('Search: ');
+    // const film = readlineSync.question('Search: ');
 
     // Film search
     
@@ -36,7 +36,7 @@ async function findFilm(page) {
 
     // Selecting the first result
 
-    await page.waitForSelector('.film-detail-content');
+    await page.waitForSelector('.film-title-wrapper');
     await page.click('.film-title-wrapper');
 }
 
@@ -46,4 +46,21 @@ async function checkView(page) {
     
 } 
 
-module.exports = { loginLetterboxd, findFilm, checkView };
+async function readFileLinesAndCheckFilms(page, lines) {
+    try {
+        for (const film of lines) {
+            try { await findFilm(page, film) } catch (error) {
+                console.log("Something went wrong while searching for the movie: ", error);
+            }
+        
+            try { await checkView(page) } catch (error) {
+                console.log("Something went wrong while checking as watched: ", error);
+            }           
+        }
+    } catch (error) {
+        console.log("Something went wrong while reading the file: ", error);
+    }
+    
+} 
+
+module.exports = { loginLetterboxd, readFileLinesAndCheckFilms };
