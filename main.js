@@ -55,7 +55,4 @@ async function letterboxdBot() {
     await browser.close();
 };
 
-// lucasguerratee@gmail.com
-// WSB144589Lucas@
-
 letterboxdBot();
