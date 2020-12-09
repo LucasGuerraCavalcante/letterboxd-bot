@@ -15,7 +15,7 @@ async function letterboxdBot() {
             '--disable-setuid-sandbox'
         ], 
         ignoreHTTPSErrors: true,
-        headless: false 
+        headless: true 
     })
         .catch(error => {
             console.log("Something went wrong during puppeteer.launch: ", error)
