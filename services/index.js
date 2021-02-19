@@ -45,6 +45,8 @@ async function findFilm(page, film) {
 async function checkView(page) {
     console.log("Checking film as watched...");
 
+    // await page.waitForSelector('.add-to-watchlist');
+    // await page.click('.add-to-watchlist');
     await page.waitForSelector('.-watch');
     await page.click('.-watch');
     
