@@ -14,3 +14,7 @@ It can read a .txt file, sign in on Letterboxd, search for all movies that are i
 Just a print screen that I made during some test in my test account:
 
 ![print](https://i.imgur.com/RzYpuJD.png)
+
+Another test (adding to the watchlist)
+
+![gif](http://g.recordit.co/XxyZYF5NIG.gif)
